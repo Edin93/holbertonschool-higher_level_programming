@@ -28,18 +28,16 @@ listint_t *insert_node(listint_t **head, int number)
 			p->next->next = np;
 			break;
 		}
-		else
+		else if (p->n <= number && p->next == NULL)
 		{
-			p = p->next;
+			np = p->next;
+			p->next = malloc(sizeof(listint_t));
+			newadd = p->next;
+			p->next->n = number;
+			p->next->next = NULL;
+			break;
 		}
-	}
-	if (p == NULL)
-	{
-		np = p->next;
-		p->next = malloc(sizeof(listint_t));
-		newadd = p->next;
-		p->next->n = number;
-		p->next->next = np;
+		p = p->next;
 	}
 	return (newadd);
 }
