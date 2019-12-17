@@ -37,7 +37,7 @@ int is_palindrome(listint_t **head)
 	{
 		n1 = p1->n;
 		p2 = h;
-		for (j = len / 2; j < len - 1 - i; j++)
+		for (j = 0; j < len - 1 - i; j++)
 		{
 			p2 = p2->next;
 		}
