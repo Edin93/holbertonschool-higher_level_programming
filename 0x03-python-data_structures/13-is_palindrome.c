@@ -25,26 +25,26 @@ int calc_len(listint_t *head)
  */
 int is_palindrome(listint_t **head)
 {
-	listint_t *p1, *p2, *h = *head;
-	int i, j, len, n1, n2;
+	listint_t *p = *head;
+	int i;
+	int arr[2048];
+	int len = calc_len(p);
 
 	if (head == NULL || *head == NULL)
 		return (1);
 
-	len = calc_len(h);
-	p1 = *head;
-	for (i = 0; i < len / 2; i++)
+	i = 0;
+	while (p)
 	{
-		n1 = p1->n;
-		p2 = h;
-		for (j = 0; j < len - 1 - i; j++)
-		{
-			p2 = p2->next;
-		}
-		n2 = p2->n;
-		if (n1 != n2)
+		arr[i] = p->n;
+		p = p->next;
+		i++;
+	}
+
+	for (i = 0; i < len; i++)
+	{
+		if (arr[i] != arr[len - 1 - i])
 			return (0);
-		p1 = p1->next;
 	}
 
 	return (1);
