@@ -33,10 +33,6 @@ int is_palindrome(listint_t **head)
 
 	len = calc_len(h);
 	p1 = *head;
-	for (i = 0; i < (len / 2); i++)
-	{
-		h = h->next;
-	}
 	for (i = 0; i < len / 2; i++)
 	{
 		n1 = p1->n;
