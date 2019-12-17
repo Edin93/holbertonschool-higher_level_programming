@@ -6,11 +6,11 @@ def add_tuple(tuple_a=(), tuple_b=()):
     t2 = 0
     if lent1 > 0:
         t1 += tuple_a[0]
-        if lent1 == 2:
+        if lent1 >= 2:
             t2 += tuple_a[1]
     if lent2 > 0:
         t1 += tuple_b[0]
-        if lent2 == 2:
+        if lent2 >= 2:
             t2 += tuple_b[1]
     t = t1, t2,
     return t
