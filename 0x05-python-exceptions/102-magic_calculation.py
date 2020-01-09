@@ -6,9 +6,9 @@ def magic_calculation(a, b):
             i > a
         except:
             raise
-        result = a ** b / i
-
-    result = b + a
+            result = a ** b / i
+        finally:
+            result = b + a
 
     return result
 
