@@ -3,10 +3,10 @@ import math
 
 
 class MagicClass:
+    """Creates a MagicClass object."""
+
     def __init__(self, radius):
-        """Init magic class.
-        radius (int, float): the class radius value.
-        """
+        """Init magic class."""
         self._MagicClass__radius = 0
         if (type(radius) is not int) and (type(radius) is not float):
             raise TypeError("radius must be a number")
