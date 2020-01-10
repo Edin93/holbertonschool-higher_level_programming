@@ -3,7 +3,7 @@ import math
 
 
 class MagicClass:
-    """Creates a MagicClass object."""
+    """Creates a magicclass object."""
 
     def __init__(self, radius):
         """Init magic class."""
