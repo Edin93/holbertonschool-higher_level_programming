@@ -1,10 +1,10 @@
 #!/usr/bin/python3
+import math
+
+
 class MagicClass:
     def __init__(self, radius):
-        """
-        Init magic class.
-
-        Parameters:
+        """Init magic class.
         radius (int, float): the class radius value.
         """
         self._MagicClass__radius = 0
