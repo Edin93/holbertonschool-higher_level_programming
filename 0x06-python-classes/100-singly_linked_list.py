@@ -7,8 +7,8 @@ class Node:
         Parameters:
         data (int): node data.
         """
-        self.data = data
-        self.next_node = next_node
+        self.__data = data
+        self.__next_node = next_node
 
     @property
     def data(self):
@@ -34,7 +34,7 @@ class Node:
     @next_node.setter
     def next_node(self, value):
         """Defines node's next value."""
-        if value is not None:
+        if value is not None and type(value) is not Node:
             raise TypeError("next_node must be a Node object")
         else:
             self.__next_node = value
@@ -47,19 +47,33 @@ class SinglyLinkedList:
         """Initialize a linked list."""
         self.__head = None
 
+    def __str__(self):
+        """Print list elements."""
+        string = ""
+        h = self.__head
+        while h:
+            string += str(h.data)
+            string += '\n'
+            h = h.next_node
+        string = string[:-1]
+        return string
+
     def sorted_insert(self, value):
         """Inserts a new Node in the correct sorted position in the list."""
         h = self.__head
         new = Node(value)
         if h is None:
-            h = Node(value)
-        elif new.data <= h.data:
-            new.__next_node = h
-            h = new
+            self.__head = Node(value)
+        elif h.data >= new.data:
+            new.next_node = h
+            self.__head = new
         else:
             while h.next_node:
-                h = h.next_node
-                if h.data < new.data:
-                    new.__next_node = h.next_node
+                if h.next_node.data >= new.data:
+                    new.next_node = h.next_node
                     h.next_node = new
-        print(h.data)
+                    break
+                else:
+                    h = h.next_node
+            if h.next_node is None:
+                h.next_node = new
