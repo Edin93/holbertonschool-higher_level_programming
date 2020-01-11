@@ -7,8 +7,8 @@ class Node:
         Parameters:
         data (int): node data.
         """
-        self.__data = data
-        self.__next_node = next_node
+        self.data = data
+        self.next_node = next_node
 
     @property
     def data(self):
