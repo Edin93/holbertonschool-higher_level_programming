@@ -28,7 +28,7 @@ class Square:
                 for j in range(self.__size):
                     s += "#"
                 s += "\n"
-            s = s[:-1]
+        s = s[:-1]
         return s
 
     @property
