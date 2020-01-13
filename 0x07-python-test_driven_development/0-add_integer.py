@@ -1,9 +1,10 @@
 #!/usr/bin/python3
 """ This module contains one function.
-the following is a usage example of our add_integers() function module, Example:
+the following is a usage example of our add_integers() function module, Ex:
 >>> andd_integers(15, 235)
 250
 """
+
 
 def add_integer(a, b=98):
     """
@@ -14,6 +15,7 @@ def add_integer(a, b=98):
     if isinstance(b, (int, float)) is False:
         raise TypeError('b must be an integer')
     return int(a) + int(b)
+
 
 if __name__ == "__main__":
     import doctest
