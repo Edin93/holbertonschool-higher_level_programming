@@ -40,9 +40,9 @@ of integers/floats")
         new.append([])
         for ei in range(len(matrix[li])):
             if (
-                    not isinstance(matrix[li][ei], (int, float))
-                    or matrix[li][ei] == ip or matrix[li][ei] == im
-                    or matrix[li][ei] != matrix[li][ei]
+                    not isinstance(matrix[li][ei], (int, float)) or
+                    matrix[li][ei] == ip or matrix[li][ei] == im or
+                    matrix[li][ei] != matrix[li][ei]
             ):
                 raise TypeError("matrix must be a matrix (list of lists) of \
 integers/floats")
