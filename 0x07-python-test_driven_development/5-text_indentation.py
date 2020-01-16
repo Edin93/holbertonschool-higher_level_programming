@@ -24,15 +24,18 @@ def text_indentation(text):
     ln = len(text)
     i = 0
     while i < ln:
-        if text[i] == ' ' and text[i - 1] in test:
+        tmp = ""
+        while i < ln and text[i] not in test:
+            tmp += text[i]
             i += 1
-        if text[i] in test:
-            print(text[i])
+        if i < ln and text[i] in test:
+            tmp += text[i]
+            tmp += '\n'
+            i += 1
+        print(tmp.strip(), end="")
+        if i + 1 < ln:
             print()
-        else:
-            print(text[i], end="")
-        i += 1
-
+            print()
 
 if __name__ == "__main__":
     import doctest
