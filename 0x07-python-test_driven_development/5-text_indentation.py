@@ -24,11 +24,11 @@ def text_indentation(text):
     ln = len(text)
     i = 0
     while i < ln:
-        if text[i] in test:
-            print()
-            print()
-        if text[i] in test and text[i + 1] == ' ':
+        if text[i] == ' ' and text[i - 1] in test:
             i += 1
+        if text[i] in test:
+            print(text[i])
+            print()
         else:
             print(text[i], end="")
         i += 1
