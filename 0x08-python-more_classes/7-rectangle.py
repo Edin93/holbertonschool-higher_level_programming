@@ -6,7 +6,11 @@ class Rectangle:
     Defines a rectangle by width and height.
     """
 
+    number_of_instances = 0
+    print_symbol = '#'
+
     def __init__(self, width=0, height=0):
+        type(self).number_of_instances += 1
         self.width = width
         self.height = height
 
@@ -48,10 +52,14 @@ class Rectangle:
             return s
         for i in range(self.__height):
             for j in range(self.__width):
-                s += "#"
+                s += str(self.print_symbol)
             if i < self.__height - 1:
                 s += '\n'
         return s
 
     def __repr__(self):
-        return "{height: {}, width: {}}".format(self.__height, self.__width)
+        return "Rectangle({}, {})".format(self.__width, self.__height)
+
+    def __del__(self):
+        type(self).number_of_instances -= 1
+        print("Bye rectangle...")
