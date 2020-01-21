@@ -1,0 +1,6 @@
+""" Class with area method that raises an exception and integer_validator method
+that validates the value parameter.
+
+
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+>>> BaseGeometry.

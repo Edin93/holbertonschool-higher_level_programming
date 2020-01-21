@@ -1,10 +1,11 @@
 """Prints the list in ascending order.
 
 >>> MyList = __import__('1-my_list').MyList
->>> my_list.append(1)
->>> my_list.append(4)
->>> my_list.append(2)
->>> my_list.append(3)
->>> my_list.append(5)
->>> MyList.print_sorted()
+>>> ml = MyList()
+>>> ml.append(1)
+>>> ml.append(4)
+>>> ml.append(2)
+>>> ml.append(3)
+>>> ml.append(5)
+>>> Ml.print_sorted()
 [1, 2, 3, 4, 5]
