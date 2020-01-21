@@ -2,6 +2,7 @@
 """ This module contains a single class MyList that inherits from list.
 """
 
+
 class MyList(list):
     """
     Class inherits from list and sort its content.
