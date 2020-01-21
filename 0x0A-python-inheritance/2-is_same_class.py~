@@ -1,0 +1,10 @@
+#!/usr/bin/python3
+""" This modules contains one function.
+"""
+
+
+def is_same_class(obj, a_class):
+    if str(a_class) == "<class 'object'>":
+        return False
+    else:
+        return isinstance(obj, a_class)
