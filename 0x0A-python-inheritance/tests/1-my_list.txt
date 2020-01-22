@@ -7,5 +7,5 @@
 >>> ml.append(2)
 >>> ml.append(3)
 >>> ml.append(5)
->>> Ml.print_sorted()
+>>> ml.print_sorted()
 [1, 2, 3, 4, 5]

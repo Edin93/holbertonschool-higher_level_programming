@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """ This module contains one function.
 the following is a usage example of our add_integers() function module, Ex:
->>> andd_integers(15, 235)
+>>> add_integer(15, 235)
 250
 """
 
