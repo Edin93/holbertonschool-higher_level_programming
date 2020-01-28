@@ -17,16 +17,16 @@ class TestSquare(unittest.TestCase):
         """
         s = Square(30, 14, 0, 0)
         self.assertEqual(s.width, 30)
-        self.assertEqual(s.height, 14)
-        self.assertEqual(s.x, 0)
+        self.assertEqual(s.height, 30)
+        self.assertEqual(s.x, 14)
         self.assertEqual(s.y, 0)
         self.assertNotEqual(s.id, 149493216)
 
         s = Square(50, 25, 100, 50)
         self.assertEqual(s.width, 50)
-        self.assertEqual(s.height, 25)
-        self.assertEqual(s.x, 100)
-        self.assertEqual(s.y, 50)
+        self.assertEqual(s.height, 50)
+        self.assertEqual(s.x, 25)
+        self.assertEqual(s.y, 100)
 
     def test_non_integer_values(self):
         """
@@ -75,7 +75,7 @@ class TestSquare(unittest.TestCase):
         args = [20, -20, 100, 20]
         self.assertRaises(ValueError, Square, *args)
 
-        args = [10, 0, 5, 12]
+        args = [-89, 0, 5, 12]
         self.assertRaises(ValueError, Square, *args)
 
         args = [-10, 82, 5, 12]
@@ -84,7 +84,7 @@ class TestSquare(unittest.TestCase):
         args = [10, 30, -5, 12]
         self.assertRaises(ValueError, Square, *args)
 
-        args = [40, 20, 50, -12]
+        args = [40, 20, -50, 12]
         self.assertRaises(ValueError, Square, *args)
 
         args = [60, 30, -100, 0]
@@ -95,15 +95,15 @@ class TestSquare(unittest.TestCase):
         Test rectangle's calculated area.
         """
         s1 = Square(3, 2)
-        self.assertEqual(s1.area(), 6)
+        self.assertEqual(s1.area(), 9)
         self.assertNotEqual(s1.area(), -6)
 
         r2 = Square(2, 10)
-        self.assertEqual(r2.area(), 20)
+        self.assertEqual(r2.area(), 4)
         self.assertNotEqual(r2.area(), 30)
 
-        r3 = Square(8, 7, 0, 0, 12)
-        self.assertEqual(r3.area(), 56)
+        r3 = Square(8, 7, 0, 0)
+        self.assertEqual(r3.area(), 64)
         self.assertNotEqual(r3.area(), 90)
 
     def test_update_args(self):
@@ -167,19 +167,16 @@ class TestSquare(unittest.TestCase):
 
         s1 = Square(10, 50, 15, 25)
         self.assertEqual(s1.width, 10)
-        self.assertEqual(s1.height, 50)
-        self.assertEqual(s1.x, 15)
-        self.assertEqual(s1.y, 25)
-        s1.update(89, 2, 3, 4, 5)
-        self.assertEqual(s1.id, 89)
-        self.assertEqual(s1.width, 2)
+        self.assertEqual(s1.height, 10)
+        self.assertEqual(s1.x, 50)
+        self.assertEqual(s1.y, 15)
+        s1.update(22, 3, 4, 5)
+        self.assertEqual(s1.width, 3)
         self.assertEqual(s1.height, 3)
         self.assertEqual(s1.x, 4)
         self.assertEqual(s1.y, 5)
         s1.update(70)
-        self.assertEqual(s1.id, 70)
         s1.update(80, 666)
-        self.assertEqual(s1.id, 80)
         self.assertEqual(s1.width, 666)
 
     def test_update_kwargs(self):
@@ -244,7 +241,6 @@ class TestSquare(unittest.TestCase):
 
         s1 = Square(10, 50, 15, 25)
         self.assertEqual(s1.width, 10)
-        self.assertEqual(s1.height, 50)
-        self.assertEqual(s1.x, 15)
-        self.assertEqual(s1.y, 25)
-        s1.update(id=89, width=2, height=3, x=4, y=5)
+        self.assertEqual(s1.height, 10)
+        self.assertEqual(s1.x, 50)
+        self.assertEqual(s1.y, 15)

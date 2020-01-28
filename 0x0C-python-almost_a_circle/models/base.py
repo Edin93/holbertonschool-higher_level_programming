@@ -81,3 +81,34 @@ class Base():
             return list
         except:
             return list
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """
+        Serialiezes to CSV.
+        """
+        objs = []
+        fn = cls.__name__ + '.csv'
+        if list_objs is not None:
+            for obj in list_objs:
+                values = list((obj.to_dictionary).values())
+                ','.join(map(str, values))
+                objs.append(str)
+        with open(fn, 'w', encoding='utf-8') as f:
+            f.write(cls.to_json_string(objs))
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """
+        Returns a list of instances.
+        """
+        list = []
+        fn = cls.__name__ + '.csv'
+        try:
+            with open(fn, 'r') as f:
+                data = cls.from_json_string(f.read())
+            for args in data:
+                list.append(cls.create(*args))
+            return list
+        except:
+            return list
