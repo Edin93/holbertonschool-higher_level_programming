@@ -38,7 +38,7 @@ class Base():
         """
         list = []
         if list_objs is None or len(list_objs) == 0:
-            with open('Rectangle.json', 'w') as f:
+            with open('Base.json', 'w') as f:
                 f.write('[]')
         else:
             fn = str(type(list_objs[0]).__name__) + '.json'
