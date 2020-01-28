@@ -43,3 +43,13 @@ class Base():
                 list.append(inst.to_dictionary())
         with open(fn, 'w', encoding='utf-8') as f:
             f.write(cls.to_json_string(list))
+
+    @staticmethod
+    def from_json_string(json_string):
+        """
+        Returns the list of the JSON strin representation json_string.
+        """
+        if json_string is None or len(json_string) == 0:
+            return []
+        else:
+            return json.loads(json_string)
