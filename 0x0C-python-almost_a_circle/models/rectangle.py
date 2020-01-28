@@ -118,7 +118,7 @@ class Rectangle(Base):
         args = [self.id, self.x, self.y, self.width, self.height]
         return '[Rectangle] ({0}) {1}/{2} - {3}/{4}'.format(*args)
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """
         Update the rectangle's attribute values from array args.
         """
@@ -133,3 +133,6 @@ class Rectangle(Base):
                 self.x = args[3]
             if i == 4:
                 self.y = args[4]
+
+        for k, v in kwargs.items():
+            setattr(self, k, v)

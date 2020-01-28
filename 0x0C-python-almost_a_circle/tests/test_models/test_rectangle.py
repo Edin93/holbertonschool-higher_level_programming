@@ -106,7 +106,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r3.area(), 56)
         self.assertNotEqual(r3.area(), 90)
 
-    def test_update(self):
+    def test_update_args(self):
         """
         Test rectangle's update function.
         """
@@ -179,5 +179,82 @@ class TestRectangle(unittest.TestCase):
         r1.update(70)
         self.assertEqual(r1.id, 70)
         r1.update(80, 666)
+        self.assertEqual(r1.id, 80)
+        self.assertEqual(r1.width, 666)
+
+    def test_update_kwargs(self):
+        """
+        Test rectangle's update function.
+        """
+        r1 = Rectangle(12, 15)
+
+        kwargs = {'id': 999, 'width': '10', 'height': 20, 'x': 10, 'y': 2}
+        self.assertRaises(TypeError, r1.update(kwargs))
+
+        kwargs = {'id': 999, 'width': (5), 'height': 20, 'x': 10, 'y': 2}
+        self.assertRaises(TypeError, r1.update(kwargs))
+
+        kwargs = {'id': 999, 'width': [15], 'height': 20, 'x': 10, 'y': 2}
+        self.assertRaises(TypeError, r1.update(kwargs))
+
+        kwargs = {'id': 888, 'width': 12, 'height': [67], 'x': 10, 'y': 2}
+        self.assertRaises(TypeError, r1.update(kwargs))
+
+        kwargs = {'id': 888, 'width': 16, 'height': (8), 'x': 10, 'y': 2}
+        self.assertRaises(TypeError, r1.update(kwargs))
+
+        kwargs = {'id': 888, 'width': 5, 'height': '14', 'x': 1, 'y': 1}
+        self.assertRaises(TypeError, r1.update(kwargs))
+
+        kwargs = {'id': 888, 'width': '15', 'height': '30', 'x': 0, 'y': 50}
+        self.assertRaises(TypeError, r1.update(kwargs))
+
+        kwargs = {'id': 999, 'width': 20, 'height': 40, 'x': '60', 'y': 10}
+        self.assertRaises(TypeError, r1.update(kwargs))
+
+        kwargs = {'id': 999, 'width': 40, 'height': 20, 'x': [15], 'y': '5'}
+        self.assertRaises(TypeError, r1.update(kwargs))
+
+        kwargs = {'id': 999, 'width': 15, 'height': 45, 'x': (17), 'y': '15'}
+        self.assertRaises(TypeError, r1.update(kwargs))
+
+        kwargs = {'id': 999, 'width': [14], 'height': 50, 'x': '16', 'y': 10}
+        self.assertRaises(TypeError,  r1.update(kwargs))
+
+        kwargs = {'id': 999, 'width': 0, 'height': 15, 'x': 10, 'y': 10}
+        self.assertRaises(ValueError,  r1.update(kwargs))
+
+        kwargs = {'id': 999, 'width': 20, 'height': -20, 'x': 100, 'y': 20}
+        self.assertRaises(ValueError,  r1.update(kwargs))
+
+        kwargs = {'id': 999, 'width': 10, 'height': 0, 'x': 5, 'y': 12}
+        self.assertRaises(ValueError,  r1.update(kwargs))
+
+        kwargs = {'id': 888, 'width': -10, 'height': 82, 'x': 5, 'y': 12}
+        self.assertRaises(ValueError,  r1.update(kwargs))
+
+        kwargs = {'id': 888, 'width': 10, 'height': 30, 'x': -5, 'y': 12}
+        self.assertRaises(ValueError, r1.update(kwargs))
+
+        kwargs = {'id': 888, 'width': 40, 'height': 20, 'x': 50, 'y': -12}
+        self.assertRaises(ValueError, r1.update(kwargs))
+
+        kwargs = {'id': 888, 'width': 60, 'height': 30, 'x': -100, 'y': 0}
+        self.assertRaises(ValueError, r1.update(kwargs))
+
+        r1 = Rectangle(10, 50, 15, 25)
+        self.assertEqual(r1.width, 10)
+        self.assertEqual(r1.height, 50)
+        self.assertEqual(r1.x, 15)
+        self.assertEqual(r1.y, 25)
+        r1.update(id=89, width=2, height=3, x=4, y=5)
+        self.assertEqual(r1.id, 89)
+        self.assertEqual(r1.width, 2)
+        self.assertEqual(r1.height, 3)
+        self.assertEqual(r1.x, 4)
+        self.assertEqual(r1.y, 5)
+        r1.update(id=70)
+        self.assertEqual(r1.id, 70)
+        r1.update(id=80, width=666)
         self.assertEqual(r1.id, 80)
         self.assertEqual(r1.width, 666)
