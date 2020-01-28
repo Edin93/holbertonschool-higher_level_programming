@@ -120,7 +120,7 @@ class Rectangle(Base):
 
     def update(self, *args):
         """
-        Update the rectangle's attribute values.
+        Update the rectangle's attribute values from array args.
         """
         for i in range(len(args)):
             if i == 0:
