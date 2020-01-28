@@ -59,6 +59,9 @@ class Base():
         """
         Returs an instance with all attributes already set.
         """
-        dum = cls(10, 10)
+        if cls.__name__ == 'Rectangle':
+            dum = cls(10, 10)
+        elif cls.__name__ == 'Square':
+            dum = cls(10)
         dum.update(**dictionary)
         return dum
