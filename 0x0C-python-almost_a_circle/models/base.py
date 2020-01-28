@@ -37,7 +37,7 @@ class Base():
         Save the JSON string representationt of list_objs to a file.
         """
         list = []
-        if list_objs is None or len(list_objs) == 0:
+        if list_objs is None:
                 return cls.to_json_string(list)
         else:
             fn = str(type(list_objs[0]).__name__) + '.json'
