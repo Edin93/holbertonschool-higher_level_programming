@@ -75,6 +75,7 @@ class Base():
         fn = cls.__name__ + '.json'
         with open(fn, 'r') as f:
             data = cls.from_json_string(f.read())
-        for dict in data:
-            list.append(cls.create(**dict))
+        if data is not None and len(data) > 0:
+            for dict in data:
+                list.append(cls.create(**dict))
         return list
