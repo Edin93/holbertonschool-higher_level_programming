@@ -40,6 +40,6 @@ class Base():
         if list_objs is not None or len(list_objs) > 0:
             for inst in list_objs:
                 list.append(inst.to_dictionary())
-        fn = str(cls.__name__) + '.json'
-        with open(fn, 'w') as f:
+        fn = cls.__name__ + '.json'
+        with open(fn, 'w', encoding='utf-8') as f:
             f.write(cls.to_json_string(list))
