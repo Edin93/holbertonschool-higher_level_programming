@@ -59,11 +59,6 @@ class Base():
         """
         Returs an instance with all attributes already set.
         """
-        d = dictionary
-        if len(dictionary) == 5:
-            dum = cls(10, 50)
-            dum.update(**dictionary)
-        else:
-            dum = cls(10)
-            dum.update(**dictionary)
+        dum = cls(10, 10)
+        dum.update(**dictionary)
         return dum
