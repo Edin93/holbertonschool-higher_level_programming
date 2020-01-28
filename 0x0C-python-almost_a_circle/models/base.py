@@ -37,9 +37,9 @@ class Base():
         Save the JSON string representationt of list_objs to a file.
         """
         list = []
-        if list_objs is not None or len(list_objs) > 0:
+        fn = cls.__name__ + '.json'
+        if list_objs is not None:
             for inst in list_objs:
                 list.append(inst.to_dictionary())
-        fn = cls.__name__ + '.json'
         with open(fn, 'w', encoding='utf-8') as f:
             f.write(cls.to_json_string(list))
