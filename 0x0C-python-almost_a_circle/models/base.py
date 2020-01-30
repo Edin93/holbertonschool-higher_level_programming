@@ -3,6 +3,7 @@
 This module contains a single class, called Base.
 """
 import json
+import csv
 
 
 class Base():
@@ -87,28 +88,54 @@ class Base():
         """
         Serialiezes to CSV.
         """
-        objs = []
         fn = cls.__name__ + '.csv'
-        if list_objs is not None:
-            for obj in list_objs:
-                values = list((obj.to_dictionary).values())
-                ','.join(map(str, values))
-                objs.append(str)
-        with open(fn, 'w', encoding='utf-8') as f:
-            f.write(cls.to_json_string(objs))
+        objs = []
+        with open(fn, 'w', newline='') as f:
+            writer = csv.writer(f, delimiter=',')
+            if list_objs is not None:
+                for obj in list_objs:
+                    l = []
+                    x = obj.x
+                    y = obj.y
+                    id = obj.id
+                    if cls.__name__ == 'Square':
+                        size = obj.size
+                        l = [id, size, x, y]
+                    else:
+                        height = obj.height
+                        width = obj.width
+                        l = [id, width, height, x, y]
+                    objs.append(l)
+            for obj in objs:
+                writer.writerow(obj)
 
     @classmethod
     def load_from_file_csv(cls):
         """
-        Returns a list of instances.
+        Deserializes from CSV.
         """
         list = []
         fn = cls.__name__ + '.csv'
         try:
             with open(fn, 'r') as f:
-                data = cls.from_json_string(f.read())
-            for args in data:
-                list.append(cls.create(*args))
+                reader = csv.reader(f, delimiter=',')
+                for row in reader:
+                    if cls.__name__ == 'Square':
+                        d = {
+                            'id': int(row[0]),
+                            'size': int(row[1]),
+                            'x': int(row[2]),
+                            'y': int(row[3])
+                        }
+                    else:
+                        d = {
+                            'id': int(row[0]),
+                            'width': int(row[1]),
+                            'height': int(row[2]),
+                            'x': int(row[3]),
+                            'y': int(row[4])
+                        }
+                    list.append(cls.create(**d))
             return list
         except:
             return list
