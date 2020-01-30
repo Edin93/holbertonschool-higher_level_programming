@@ -4,6 +4,7 @@ This module contains a single class, called Base.
 """
 import json
 import csv
+from tkinter import Tk, Canvas
 
 
 class Base():
@@ -139,3 +140,34 @@ class Base():
             return list
         except:
             return list
+
+    def draw(list_rectangles, list_squares):
+        """
+        Draws Rectangles and Squares.
+        """
+        master = Tk()
+        c = Canvas(master, width=800, height=800, bg="blue")
+        if list_rectangles is not None and len(list_rectangles) != 0:
+            for rect in list_rectangles:
+                r = rect.to_dictionary()
+                h = r.get('height')
+                w = r.get('width')
+                x = r.get('x', 0)
+                y = r.get('y', 0)
+                c.create_line(x, y, (x + w), y)
+                c.create_line(x + w, y, x + w, y + h)
+                c.create_line(x + w, y + h, x, y + h)
+                c.create_line(x, y + h, x, y)
+        if list_squares is not None and len(list_squares) != 0:
+            for sq in list_squares:
+                r = sq.to_dictionary()
+                h = r.get('size')
+                w = r.get('size')
+                x = r.get('x', 0)
+                y = r.get('y', 0)
+                c.create_line(x, y, (x + w), y)
+                c.create_line(x + w, y, x + w, y + h)
+                c.create_line(x + w, y + h, x, y + h)
+                c.create_line(x, y + h, x, y)
+        c.pack()
+        master.mainloop()
