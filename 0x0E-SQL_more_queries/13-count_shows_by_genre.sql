@@ -10,5 +10,6 @@ SELECT tvg.name AS genre, COUNT(tvsg.genre_id) AS number_of_shows
        FROM tv_genres tvg
        LEFT JOIN tv_show_genres tvsg
        ON tvg.id = tvsg.genre_id
+       WHERE tvsg.genre_id IN (1,2,3,4,5,6,7,8)
        GROUP BY tvg.id
        ORDER BY number_of_shows DESC;
