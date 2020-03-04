@@ -19,3 +19,6 @@
 * All SQL keywords should be in uppercase (SELECT, WHERE…)
 * A README.md file, at the root of the folder of the project, is mandatory
 * The length of our files will be tested using wc
+
+## NOTE
+#### In all the tasks, The database name will be passed as an argument of the mysql command.
