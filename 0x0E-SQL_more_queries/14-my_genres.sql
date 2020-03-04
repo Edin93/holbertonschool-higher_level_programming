@@ -9,5 +9,5 @@ SELECT tvg.name AS name
        ON tvsg.genre_id = tvg.id
        LEFT JOIN tv_shows tvs
        ON tvs.id = tvsg.show_id
-       WHERE tvsg.show_id = 8
+       WHERE tvs.title = 'Dexter'
        ORDER BY tvg.name ASC;
