@@ -7,8 +7,8 @@
 -- I can use only one SELECT statement.
 
 SELECT tvg.name AS genre, COUNT(tvsg.genre_id) AS number_of_shows
-       FROM tv_show_genres tvsg
-       LEFT JOIN tv_genres tvg
+       FROM tv_genres tvg
+       LEFT JOIN tv_show_genres tvsg
        ON tvg.id = tvsg.genre_id
        GROUP BY tvg.id
        ORDER BY number_of_shows DESC;
