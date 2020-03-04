@@ -4,8 +4,8 @@
 -- Results must be sorted in ascending order by the genre name
 -- I can use only one SELECT statement
 SELECT tvg.name AS name
-       FROM tv_genres tvg
-       LEFT JOIN tv_show_genres tvsg
+       FROM tv_show_genres tvsg
+       LEFT JOIN tv_genres tvg
        ON tvsg.genre_id = tvg.id
        WHERE tvsg.show_id = 8
        ORDER BY tvg.name ASC;
