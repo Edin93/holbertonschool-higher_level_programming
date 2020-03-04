@@ -6,9 +6,9 @@
 -- Results must be sorted in descending order by the number of shows linked
 -- I can use only one SELECT statement.
 
-SELECT tvg.name AS genre, COUNT(tvsg.genre_id) AS number_of_shows
+SELECT tvg.name AS genre, COUNT(*) AS number_of_shows
        FROM tv_genres tvg
        LEFT JOIN tv_show_genres tvsg
        ON tvg.id = tvsg.genre_id
-       GROUP BY tvg.name
+       GROUP BY tvg.id
        ORDER BY number_of_shows DESC;
