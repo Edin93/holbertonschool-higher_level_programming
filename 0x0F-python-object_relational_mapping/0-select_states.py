@@ -22,4 +22,4 @@ query_rows = cursor.fetchall()
 for row in query_rows:
     print(row)
 cursor.close()
-#connection.close()
+connection.close()
