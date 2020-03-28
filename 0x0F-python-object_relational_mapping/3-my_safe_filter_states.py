@@ -20,8 +20,8 @@ def search():
         charset="utf8"
     )
     cursor = connection.cursor()
-    cmd = "SELECT * FROM states WHERE BINARY name='{}' ORDER BY id ASC"
-    cursor.execute(cmd.format(arg[4]))
+    cmd = "SELECT * FROM states WHERE BINARY name=%(name)s ORDER BY id ASC"
+    cursor.execute(cmd, {'name': arg[4]})
     results = cursor.fetchall()
     for row in results:
         print(row)
