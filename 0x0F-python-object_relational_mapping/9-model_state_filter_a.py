@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """
-script that prints the first State object from the database hbtn_0e_6_usa.
+Module contains a  script that lists all State objects that
+contain the letter a from the database hbtn_0e_6_usa.
 """
 
 
@@ -11,7 +12,10 @@ from sqlalchemy.orm import sessionmaker
 
 
 def first_state():
-    """Prints the first State object from the database hbtn_0e_6_usa."""
+    """
+    Lists all State objects that
+    contain the letter a from the database hbtn_0e_6_usa
+    """
 
     arg = sys.argv
     url_base = 'mysql+mysqldb://{}:{}@localhost:3306/{}'
@@ -20,8 +24,8 @@ def first_state():
     Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     session = Session()
-    inst = session.query(State).first()
-    print(inst.id, ": ", inst.name, sep="")
+    for inst in session.query(State).filter(State.name.like('%a%')):
+        print(inst.id, ": ", inst.name, sep="")
 
 
 if __name__ == "__main__":
