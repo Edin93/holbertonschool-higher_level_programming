@@ -25,7 +25,7 @@ def list_cities():
     for s in session.query(State).order_by(State.id.asc()):
         print(s.id, ': ', s.name, sep='')
         for c in s.cities:
-             print("\t", c.id, ": ", c.name, sep="")
+            print("\t", c.id, ": ", c.name, sep="")
 
 
 if __name__ == "__main__":
