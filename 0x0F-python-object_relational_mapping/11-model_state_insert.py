@@ -27,6 +27,7 @@ def add_state():
     session.add(new_state)
     for inst in session.query(State):
         print(inst.id, ": ", inst.name, sep="")
+    session.commit()
 
 
 if __name__ == "__main__":
