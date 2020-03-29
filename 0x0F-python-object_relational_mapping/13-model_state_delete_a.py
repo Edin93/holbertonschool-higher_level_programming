@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
-Module contains a script that adds the State object
-“Louisiana” to the database hbtn_0e_6_usa
+A module that contains a script that changes the name
+of a State object from the database hbtn_0e_6_usa
 """
 
 
@@ -11,23 +11,21 @@ from sqlalchemy import (create_engine)
 from sqlalchemy.orm import sessionmaker
 
 
-def add_state():
+def change_states():
     """
-    Adds the State object “Louisiana” to the database hbtn_0e_6_usa.
+    Change the name of the State where id = 2 to New Mexico.
     """
 
     arg = sys.argv
-    url_base = 'mysql+mysqldb://{}:{}@localhost:3306/{}'
+    url_base = "mysql+mysqldb://{}:{}@localhost:3306/{}"
     db_url = url_base.format(arg[1], arg[2], arg[3])
     engine = create_engine(db_url, pool_pre_ping=True)
     Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     session = Session()
-    new_state = State(name="Louisiana")
-    session.add(new_state)
+    session.query(State).filter(State.id == 2).update({'name': "New Mexico"})
     session.commit()
-    print(new_state.id)
 
 
 if __name__ == "__main__":
-    add_state()
+    change_states()
