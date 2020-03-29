@@ -30,6 +30,7 @@ def list_states():
         print(s.id, ": ",  s.name, sep="")
         for c in session.query(City).filter(City.state_id == s.id):
             print("\t", c.id, ": ", c.name, sep="")
+    session.close()
 
 
 if __name__ == "__main__":
