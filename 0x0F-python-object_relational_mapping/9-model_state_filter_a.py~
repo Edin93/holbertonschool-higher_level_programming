@@ -21,10 +21,7 @@ def first_state():
     Session = sessionmaker(bind=engine)
     session = Session()
     inst = session.query(State).first()
-    if inst is not None:
-        print(inst.id, ": ", inst.name, sep="")
-    else:
-        print("Nothing")
+    print(inst.id, ": ", inst.name, sep="")
 
 
 if __name__ == "__main__":
