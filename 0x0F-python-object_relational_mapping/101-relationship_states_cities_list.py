@@ -29,7 +29,7 @@ def list_states():
     for s in session.query(State):
         print(s.id, ": ",  s.name, sep="")
         for c in session.query(City).filter(City.state_id == s.id):
-            print("    ", c.id, ": ", c.name, sep="")
+            print("\t", c.id, ": ", c.name, sep="")
     session.close()
 
 
