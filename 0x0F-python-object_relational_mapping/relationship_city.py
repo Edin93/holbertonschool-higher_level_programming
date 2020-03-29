@@ -11,8 +11,6 @@ from sqlalchemy import (
     Column,
     ForeignKey
 )
-from model_state import State
-from sqlalchemy.orm import relation
 from sqlalchemy.ext.declarative import declarative_base
 
 
@@ -35,7 +33,6 @@ class City(Base):
     )
     state_id = Column(
         Integer,
-        ForeignKey(State.id),
+        ForeignKey('states.id'),
         nullable=False
     )
-    state = relation("State", foreign_keys='City.state_id')
