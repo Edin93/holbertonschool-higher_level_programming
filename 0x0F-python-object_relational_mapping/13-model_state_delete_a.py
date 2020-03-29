@@ -23,7 +23,8 @@ def change_states():
     Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     session = Session()
-    session.query(State).filter(State.id == 2).update({'name': "New Mexico"})
+    for inst in session.query(State).filter(State.name.like('%a%')):
+        session.delete(inst)
     session.commit()
 
 
