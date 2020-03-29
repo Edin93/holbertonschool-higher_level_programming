@@ -11,7 +11,7 @@ from sqlalchemy import (create_engine)
 from sqlalchemy.orm import sessionmaker
 
 
-def first_state():
+def list_states():
     """
     Lists all State objects that
     contain the letter a from the database hbtn_0e_6_usa
@@ -29,4 +29,4 @@ def first_state():
 
 
 if __name__ == "__main__":
-    first_state()
+    list_states()

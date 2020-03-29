@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
-Module contains a script that prints the State object with
-the name passed as argument from the database hbtn_0e_6_usa.
+Module contains a script that adds the State object
+“Louisiana” to the database hbtn_0e_6_usa
 """
 
 
@@ -11,10 +11,9 @@ from sqlalchemy import (create_engine)
 from sqlalchemy.orm import sessionmaker
 
 
-def print_state_id():
+def add_state():
     """
-    Prints the State object with the name passed as
-    argument from the database hbtn_0e_6_usa.
+    Adds the State object “Louisiana” to the database hbtn_0e_6_usa.
     """
 
     arg = sys.argv
@@ -24,12 +23,9 @@ def print_state_id():
     Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     session = Session()
-    result = session.query(State).filter(State.name == arg[4]).first()
-    if result is not None:
-        print(result.id)
-    else:
-        print("Not found")
+    for inst in session.query(State):
+        print(inst.id, ": ", inst.name, sep="")
 
 
 if __name__ == "__main__":
-    print_state_id()
+    add_state()
