@@ -2,11 +2,11 @@
 """
 Contains a Python script that fetches https://intranet.hbtn.io/status.
 """
-import urllib.request
+from urllib import request
 
 
 url = 'https://intranet.hbtn.io/status'
-with urllib.request.urlopen(url) as res:
+with request.urlopen(url) as res:
     r = res.read()
     print('Body response:')
     print('\t- type:', type(r))
