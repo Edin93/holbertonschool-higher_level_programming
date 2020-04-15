@@ -34,7 +34,7 @@ def run():
     params = {
         'q': search,
         'result_type': 'recent',
-        'count': 2
+        'count': 5
     }
     search_url = '{}1.1/search/tweets.json'.format(base_url)
     r = requests.get(search_url, headers=search_headers, params=params)
@@ -47,4 +47,4 @@ def run():
 
 
 if __name__ == "__main__":
-    run():
+    run()
