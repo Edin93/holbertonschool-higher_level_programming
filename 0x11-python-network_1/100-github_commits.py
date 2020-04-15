@@ -8,7 +8,6 @@ given name by the user's given username.
 """
 import requests
 from sys import argv
-import json
 
 
 def run():
