@@ -12,8 +12,11 @@ def run():
     Send req to URL and displays X-Request-Id value.
     """
     url = argv[1]
-    r = requests.get(url)
-    print(r.headers['X-Request-Id'])
+    try:
+        r = requests.get(url)
+        print(r.headers['X-Request-Id'])
+    except requests.exceptions.ConnectionError as e:
+        pass
 
 
 if __name__ == "__main__":
