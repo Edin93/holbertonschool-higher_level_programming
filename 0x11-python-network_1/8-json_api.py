@@ -23,7 +23,7 @@ def run():
             print('[{}] {}'.format(j['id'], j['name']))
         else:
             print('No result')
-    except Error as e:
+    except ValueError as e:
         print('Not a valid JSON')
 
 
