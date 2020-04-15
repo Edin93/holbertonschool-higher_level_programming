@@ -7,6 +7,11 @@ from sys import argv
 from urllib import request
 
 
-url = argv[1]
-with request.urlopen(url) as res:
-    print(res.headers['X-Request-Id'])
+def run():
+    url = argv[1]
+    with request.urlopen(url) as res:
+        print(res.headers['X-Request-Id'])
+
+
+if __name__ == "__main__":
+    run()

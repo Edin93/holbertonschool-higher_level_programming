@@ -10,12 +10,18 @@ import requests
 from sys import argv
 import json
 
-repo = argv[1]
-user = argv[2]
-url = 'https://api.github.com/repos/{}/{}/commits'.format(user, repo)
-r = requests.get(url)
-commits = r.json()[:10]
-for c in commits:
-    n = c['commit']['author']['name']
-    sha = c['commit']['tree']['sha']
-    print('{}: {}'.format(sha, n))
+
+def run():
+    repo = argv[1]
+    user = argv[2]
+    url = 'https://api.github.com/repos/{}/{}/commits'.format(user, repo)
+    r = requests.get(url)
+    commits = r.json()[:10]
+    for c in commits:
+        n = c['commit']['author']['name']
+        sha = c['commit']['tree']['sha']
+        print('{}: {}'.format(sha, n))
+
+
+if __name__ == "__main__":
+    run()

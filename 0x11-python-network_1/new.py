@@ -36,7 +36,7 @@ search_headers = {
 params = {
     'q': search,
     'result_type': 'recent',
-    'count': 5
+    'count': 2
 }
 
 search_url = '{}1.1/search/tweets.json'.format(base_url)
@@ -46,13 +46,19 @@ j = r.json()
 #print(j)
 #print(json.dumps(j, indent=4, sort_keys=True))
 
+for s in j['statuses']:
+    #for a in s:
+        #print(a)
+    print(json.dumps(s['user'], indent=4, sort_keys=True))
+    print('***************************************************************************')
+
 #print(json.dumps(j, indent=4, sort_keys=True))
 
-for s in j['statuses']:
-    tid = s['id']
-    tt = s['text']
-    tun = s['user']['name']
-    print('[{}] {} by {}'.format(tid, tt, tun))
+#for s in j['statuses']:
+#    tid = s['id']
+#    tt = s['text']
+#    tun = s['user']['name']
+#    print('[{}] {} by {}'.format(tid, tt, tun))
 
 #for x in j['statuses']:
 #    print(x['id'])
