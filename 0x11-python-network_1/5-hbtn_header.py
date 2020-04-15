@@ -14,7 +14,7 @@ def run():
     url = argv[1]
     try:
         r = requests.get(url)
-        print(r.headers['X-Request-Id'])
+        print(r.headers.get('X-Request-Id'))
     except requests.exceptions.ConnectionError as e:
         pass
 
