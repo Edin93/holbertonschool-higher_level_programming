@@ -1,11 +1,16 @@
 #!/usr/bin/python3
+"""
+A script that takes in 3 strings and sends a search request to the Twitter API.
+"""
 import base64
 from sys import argv
 import requests
-import json
 
 
 def run():
+    """
+    Takes in 3 strings and sends a search request to the Twitter API.
+    """
     client_key = argv[1]
     client_secret = argv[2]
     search = argv[3]

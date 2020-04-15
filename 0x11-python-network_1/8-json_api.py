@@ -8,6 +8,9 @@ from sys import argv
 
 
 def run():
+    """
+    Sends a POST req to the URL.
+    """
     if len(argv) == 2:
         q = argv[1]
     else:

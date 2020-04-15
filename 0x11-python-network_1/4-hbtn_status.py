@@ -6,6 +6,9 @@ import requests
 
 
 def run():
+    """
+    Fetches https://intranet.hbtn.io/status.
+    """
     url = 'https://intranet.hbtn.io/status'
     r = requests.get(url)
     print('Body response:')

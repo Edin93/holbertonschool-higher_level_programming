@@ -8,6 +8,9 @@ from sys import argv
 
 
 def run():
+    """
+    Sends a req to the URL and displays response body.
+    """
     url = argv[1]
     r = requests.get(url)
     if (r.code_status >= 400):

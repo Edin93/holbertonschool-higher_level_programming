@@ -12,6 +12,9 @@ import json
 
 
 def run():
+    """
+    Displays last 10 commits informations.
+    """
     repo = argv[1]
     user = argv[2]
     url = 'https://api.github.com/repos/{}/{}/commits'.format(user, repo)

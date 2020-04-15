@@ -10,6 +10,9 @@ from sys import argv
 
 
 def run():
+    """
+    Send POST req to URL.
+    """
     url = argv[1]
     email = argv[2]
     values = {

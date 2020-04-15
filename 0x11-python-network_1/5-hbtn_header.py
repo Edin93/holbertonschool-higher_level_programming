@@ -8,6 +8,9 @@ from sys import argv
 
 
 def run():
+    """
+    Send req to URL and displays X-Request-Id value.
+    """
     url = argv[1]
     r = requests.get(url)
     print(r.headers['X-Request-Id'])

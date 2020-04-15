@@ -6,6 +6,9 @@ from urllib import request
 
 
 def run():
+    """
+    Fetches https://intranet.hbtn.io/status.
+    """
     url = 'https://intranet.hbtn.io/status'
     with request.urlopen(url) as res:
         r = res.read()

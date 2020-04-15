@@ -8,6 +8,9 @@ from sys import argv
 
 
 def run():
+    """
+    Displays github user ID.
+    """
     un = argv[1]
     pw = argv[2]
     url = 'https://api.github.com/user'

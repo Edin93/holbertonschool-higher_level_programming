@@ -8,6 +8,9 @@ from urllib import request
 
 
 def run():
+    """
+    Sends request to URL and displays X-REquest-Id values.
+    """
     url = argv[1]
     with request.urlopen(url) as res:
         print(res.headers['X-Request-Id'])

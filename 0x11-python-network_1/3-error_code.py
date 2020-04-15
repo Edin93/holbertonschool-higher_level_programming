@@ -8,6 +8,9 @@ from urllib import request, error
 
 
 def run():
+    """
+    Sends a req to URL and displays resp body.
+    """
     url = argv[1]
     try:
         with request.urlopen(url) as res:
