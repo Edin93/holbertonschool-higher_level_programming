@@ -20,8 +20,8 @@ def run():
     r = requests.get(url)
     commits = r.json()[:10]
     for c in commits:
-        n = c['commit']['author']['name']
-        sha = c['commit']['tree']['sha']
+        n = c.get('commit').get('author').get('name')
+        sha = c.get('sha')
         print('{}: {}'.format(sha, n))
 
 
