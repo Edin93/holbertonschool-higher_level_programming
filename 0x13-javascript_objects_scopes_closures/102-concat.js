@@ -22,7 +22,7 @@ if (process.argv.length === 5) {
     if (err) {
       throw err;
     }
-    fs.appendFile(process.argv[4], data, (err) => {
+    fs.appendFile(process.argv[4], data + '\n', (err) => {
       if (err) {
         throw (err);
       }
