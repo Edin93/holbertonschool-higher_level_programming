@@ -12,20 +12,24 @@ if (process.argv.length === 5) {
     if (err) {
       throw err;
     }
-    fs.appendFile(process.argv[4], data + '\n', (err) => {
-      if (err) {
-        throw (err);
-      }
-    });
+    if (Object.keys(data).length !== 0 && data.constructor !== Object) {
+      fs.appendFile(process.argv[4], data + '\n', (err) => {
+        if (err) {
+          throw (err);
+        }
+      });
+    }
   });
   fs.readFile(process.argv[3], (err, data) => {
     if (err) {
       throw err;
     }
-    fs.appendFile(process.argv[4], data + '\n', (err) => {
-      if (err) {
-        throw (err);
-      }
-    });
+    if (Object.keys(data).length !== 0 && data.constructor !== Object) {
+      fs.appendFile(process.argv[4], data + '\n', (err) => {
+        if (err) {
+          throw (err);
+        }
+      });
+    }
   });
 }
