@@ -8,15 +8,13 @@ request(url, function (err, res, body) {
     console.log(err);
   } else {
     const result = JSON.parse(body);
-    let i = 0;
-    while (i < result.characters.length) {
+    for (let i = 0; i < result.characters.length; i++) {
       request(result.characters[i], function (err, res, body) {
         if (err) {
           console.log(err);
         } else {
           console.log(JSON.parse(body).name);
         }
-	i++;
       });
     }
   }
