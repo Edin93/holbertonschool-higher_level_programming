@@ -13,7 +13,7 @@ if (process.argv.length === 3) {
       const results = JSON.parse(body).results;
       for (let i = 0; i < results.length; i++) {
         const charUrls = results[i].characters;
-        if (charUrls.includes(actor)) {
+        if (charUrls.includes(actor) || charUrls.includes(actor.slice(0, -1))) {
           count++;
         }
       }
