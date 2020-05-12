@@ -12,8 +12,8 @@ if (process.argv.length === 5) {
     if (err) {
       throw err;
     }
-    if (Object.keys(data).length !== 0 && data.constructor !== Object) {
-      fs.appendFile(process.argv[4], data + '\n', (err) => {
+    else {
+      fs.appendFile(process.argv[4], data, (err) => {
         if (err) {
           throw (err);
         }
@@ -24,8 +24,8 @@ if (process.argv.length === 5) {
     if (err) {
       throw err;
     }
-    if (Object.keys(data).length !== 0 && data.constructor !== Object) {
-      fs.appendFile(process.argv[4], data + '\n', (err) => {
+    else {
+      fs.appendFile(process.argv[4], data, (err) => {
         if (err) {
           throw (err);
         }
