@@ -3,7 +3,7 @@
 const fs = require('fs');
 
 if (process.argv.length === 5) {
-  fs.writeFile(process.argv[4], '', { flag: 'wx' }, (err) => {
+  fs.writeFile(process.argv[4], '', 'utf8', (err) => {
     if (err) {
       throw err;
     }
