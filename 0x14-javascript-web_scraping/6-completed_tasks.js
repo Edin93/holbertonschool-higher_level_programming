@@ -11,11 +11,12 @@ if (process.argv.length === 3) {
     } else {
       const arr = JSON.parse(body);
       for (let i = 0; i < arr.length; i++) {
-        if (result[arr[i].userId] === undefined) {
-          result[arr[i].userId] = 0;
-        }
         if (arr[i].completed === true) {
-          result[arr[i].userId] += 1;
+          if (result[arr[i].userId] === undefined) {
+            result[arr[i].userId] = 1;
+          } else {
+            result[arr[i].userId] += 1;
+          }
         }
       }
       console.log(result);
